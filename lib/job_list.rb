@@ -1,4 +1,7 @@
 require_relative './job'
+require_relative "./exceptions/self_dependency_error"
+require_relative "./exceptions/circular_dependency_error"
+
 class JobList
   	attr_accessor :jobs
 
@@ -18,6 +21,8 @@ class JobList
       end
 
       @final_jobs
+    rescue SelfDependencyError => e
+      puts e.message
     end
 
     def jobs

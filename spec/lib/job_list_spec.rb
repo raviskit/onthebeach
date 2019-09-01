@@ -20,10 +20,7 @@ describe "JobList" do
   it "should return a jobs sequence in order when jobs are dependent of each other" do
   end
 
-  it "should return a jobs sequence in order when jobs are dependent of other jobs" do
-  end
-
-  it "should return an error when job is dependent on itself" do
+  it "should return a jobs sequence in order when jobs are dependent of more than one jobs" do
   end
 
   it "should return an error when there is a circular dependency on jobs" do
