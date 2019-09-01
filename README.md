@@ -11,7 +11,8 @@ To run the application:
 ```
 Now enter the inputs in a way that each line contains a new job and end it with # in the final line.
 For example:
-```ruby program.rb
+```
+    $ ruby program.rb
 ```
 you will see and output like this on screen:
 ```
