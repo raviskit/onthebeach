@@ -20,6 +20,14 @@ class JobList
         @final_jobs << Job.new(job_with_dependent[0], job_with_dependent[1])
       end
 
+      jobs_with_dependancy = @final_jobs.select { |job| !job.dependent_id.nil? }
+
+      jobs_with_dependancy.each do |dependent_job|
+        dependency_index = @final_jobs.find_index { |job| dependent_job.dependent_id == job.value }
+        dependent_index = @final_jobs.find_index { |job| dependent_job.value == job.value }
+        @final_jobs.insert(dependent_index, @final_jobs.delete_at(dependency_index))
+      end
+
       @final_jobs
     rescue SelfDependencyError => e
       puts e.message

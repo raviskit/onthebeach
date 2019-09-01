@@ -18,6 +18,8 @@ describe "JobList" do
   end
 
   it "should return a jobs sequence in order when jobs are dependent of each other" do
+    job_list = JobList.new("a =>\nb => c\nc =>\n")
+		expect(job_list.jobs).to eql "acb"
   end
 
   it "should return a jobs sequence in order when jobs are dependent of more than one jobs" do
