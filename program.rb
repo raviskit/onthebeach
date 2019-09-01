@@ -6,4 +6,4 @@ $/ = '#'
 jobs =  jobs = STDIN.gets.chomp("#")
 
 job_list = JobList.new(jobs)
-p "Entered jobs are: #{job_list}"
+p "Returned sequence is : #{job_list.jobs}"
