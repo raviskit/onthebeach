@@ -23,6 +23,8 @@ describe "JobList" do
   end
 
   it "should return a jobs sequence in order when jobs are dependent of more than one jobs" do
+    job_list = JobList.new("a =>\nb => c\nc => f\nd => a\ne => b\nf =>\n")
+		expect(job_list.jobs).to eql "afcbde"
   end
 
   it "should return an error when there is a circular dependency on jobs" do

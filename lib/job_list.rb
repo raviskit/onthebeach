@@ -25,7 +25,7 @@ class JobList
       jobs_with_dependancy.each do |dependent_job|
         dependency_index = @final_jobs.find_index { |job| dependent_job.dependent_id == job.value }
         dependent_index = @final_jobs.find_index { |job| dependent_job.value == job.value }
-        @final_jobs.insert(dependent_index, @final_jobs.delete_at(dependency_index))
+        @final_jobs.insert(dependent_index, @final_jobs.delete_at(dependency_index)) if dependency_index > dependent_index
       end
 
       @final_jobs
